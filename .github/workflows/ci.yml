@@ -23,3 +23,13 @@ jobs:
           npm i
       - run: |
           npm run assertion-test
+  cdk_nag_tests:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          node-version: '18.x'
+      - run: |
+          npm i
+      - run: |
+          cdk synth
