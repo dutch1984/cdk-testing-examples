@@ -1,13 +1,25 @@
+name: CI
+
 on: push
 
 jobs:
   snapshot_tests:
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v3
+        with:
+          node-version: '18.x'
+      - run: |
+          npm i
       - run: |
           npm run snapshot-test
   assertion_tests:
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v3
+        with:
+          node-version: '18.x'
+      - run: |
+          npm i
       - run: |
           npm run assertion-test
