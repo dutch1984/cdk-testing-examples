@@ -15,13 +15,17 @@ The `cdk.json` file tells the CDK Toolkit how to execute your app.
 
 # Testing your IaC
 
-cfn-nag linter (lokaal) tegen synth aan. cdk-nag linter bestaat nog niet.
-cfn-lint voor awareness van CFN templates kan zijn dat een service nog niet beschikbaar is in een specifieke region cfn=lint is zich hiervan bewust.
+## Source Code Analysis Tools / Static Application Security Testing
 
-## Integration tests
-Controle van integraties en afhankelijkheden tussen lagen.
+### What does it do?
+We can use cfn-lint to lint the synthed CDK stack. This could help us identify problems in our stacks/constructs in relation to the AWS CloudFormation Resource Specification.
 
-Voorbeeld: controle of tags bestaan voor monitoring software
+As an example you could think of EC2 types or services that might not be available in all regions. Cfn-lint might warn us in case we made mistakes in regards to the specification.
+
+Besides cfn-lint we also have cdk-nag (or cfn-nag) available to make us aware of any security related issues in ou codebase.
+
+### How is it done?
+Cfn-lint and cdk-nag (cfn-nag) can be ran in a CI pipeline. Cfn-lint and cfn-nag can also be installed as a plugin for Visual Studio Code.
 
 ## Snapshot tests
 
@@ -42,18 +46,20 @@ Update your snapshot by running the command `npm test -- -u` or a single snapsho
 ## Fine-grained Assertion tests
 
 ### What does it do?
-Fine-grained assertion test can help us to stay in compliance with security office requirements, or any other ruleset we need to comply with.
-
-Resource relationships
-logic errors
-compliance
+Fine-grained assertion test can help us to stay in compliance with security office requirements, or any other ruleset we need to comply with. The also help is to validate that relationships between resources exist. For example, that a S3 bucket had a policy attached to it.
 
 ### How is it done
 
-https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/Welcome.html
+Examples can be found in the file `./lib/example-stack-one.spec.ts`.
+
+We place files on which we perform assertions next to the file constaining the stack/construct we are performing assertions against. We do this because the assertions check if a certain specification is met. To make these specifications easy to find for a stack/construct, it is best to keep them next to eachother.
+
+The resources mentioned in the fine-grained assertions are CloudFormation mappings of the resources in the CDK code. This is because we are performing the assertions against the synthed CDK code. Consult the CloudFormation [User Guide](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/Welcome.html) for ressource definitions.
 
 # Next
 - Testing Lambda functions.
+- Integration tests.
+- E2E tests.
 
 # Sources
 https://www.youtube.com/watch?v=KJC380Juo2w
