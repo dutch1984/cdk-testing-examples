@@ -1,0 +1,13 @@
+on: push
+
+jobs:
+  snapshot_tests:
+    runs-on: ubuntu-latest
+    steps:
+      - run: |
+          npm run snapshot-test
+  assertion_tests:
+    runs-on: ubuntu-latest
+    steps:
+      - run: |
+          npm run assertion-test
