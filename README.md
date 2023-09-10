@@ -56,6 +56,8 @@ We place files on which we perform assertions next to the file constaining the s
 
 The resources mentioned in the fine-grained assertions are CloudFormation mappings of the resources in the CDK code. This is because we are performing the assertions against the synthed CDK code. Consult the CloudFormation [User Guide](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/Welcome.html) for ressource definitions.
 
+Within our test we can make use of the CDK [assertions module](https://docs.aws.amazon.com/cdk/api/v2/docs/aws-cdk-lib.assertions-readme.html) and Jests [expect](https://jestjs.io/docs/expect) and [mocking](https://jestjs.io/docs/mock-function-api) functionality. 
+
 ## Integration tests
 
 ### What does it do?
