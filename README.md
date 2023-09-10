@@ -56,6 +56,15 @@ We place files on which we perform assertions next to the file constaining the s
 
 The resources mentioned in the fine-grained assertions are CloudFormation mappings of the resources in the CDK code. This is because we are performing the assertions against the synthed CDK code. Consult the CloudFormation [User Guide](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/Welcome.html) for ressource definitions.
 
+## Integration tests
+
+### What does it do?
+
+
+### How is it done
+![Integration tests](./docs/images/integration-tests.png)
+
+
 # Next
 - Testing Lambda functions.
 - Integration tests.
