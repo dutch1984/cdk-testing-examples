@@ -32,4 +32,4 @@ jobs:
       - run: |
           npm i
       - run: |
-          cdk synth
+          npm run cdk synth

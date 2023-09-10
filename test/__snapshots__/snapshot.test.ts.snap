@@ -12,6 +12,16 @@ exports[`Snapshot test ExampleStackOne snapshot test 1`] = `
   "Resources": {
     "MyExampleBucket927A78A6": {
       "DeletionPolicy": "Retain",
+      "Metadata": {
+        "cdk_nag": {
+          "rules_to_suppress": [
+            {
+              "id": "AwsSolutions-S1",
+              "reason": "A reason for suppressing the warning.",
+            },
+          ],
+        },
+      },
       "Properties": {
         "BucketEncryption": {
           "ServerSideEncryptionConfiguration": [
@@ -36,6 +46,16 @@ exports[`Snapshot test ExampleStackOne snapshot test 1`] = `
       "UpdateReplacePolicy": "Retain",
     },
     "MyExampleBucketPolicyA00A34B4": {
+      "Metadata": {
+        "cdk_nag": {
+          "rules_to_suppress": [
+            {
+              "id": "AwsSolutions-S1",
+              "reason": "A reason for suppressing the warning.",
+            },
+          ],
+        },
+      },
       "Properties": {
         "Bucket": {
           "Ref": "MyExampleBucket927A78A6",
@@ -125,6 +145,20 @@ exports[`Snapshot test ExampleStackTwo snapshot test 1`] = `
   "Resources": {
     "MyExampleBucket927A78A6": {
       "DeletionPolicy": "Retain",
+      "Metadata": {
+        "cdk_nag": {
+          "rules_to_suppress": [
+            {
+              "id": "AwsSolutions-S1",
+              "reason": "A reason for suppressing the warning.",
+            },
+            {
+              "id": "AwsSolutions-S10",
+              "reason": "A reason for suppressing the warning.",
+            },
+          ],
+        },
+      },
       "Properties": {
         "VersioningConfiguration": {
           "Status": "Enabled",
